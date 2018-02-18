@@ -25,6 +25,7 @@ $final_spam_destiny = <%= @final_spam_destiny %>
 <% if @final_bad_header_destiny %>
 $final_bad_header_destiny = <%= @final_bad_header_destiny %>
 <% end %>
+chomp($myhostname = `cat /etc/mailname`);
 
 #------------ Do not modify anything below this line -------------
 1;  # ensure a defined return
