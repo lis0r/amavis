@@ -6,13 +6,15 @@ class amavis::config(
   $final_spam_destiny       =undef,
   $final_bad_header_destiny =undef,
 ) {
-  include amavis
-  file { '/etc/amavis/conf.d/50-user':
-    ensure  => present,
-    content => template('amavis/50-user'),
-    notify  => Service['amavis'],
-    require => Exec['amavis'],
+  file { [ '/etc/', '/etc/amavis/', '/etc/amavis/conf.d/' ]:
+    ensure  => directory,
   }
+  file { '/etc/amavis/conf.d/51-puppet':
+    ensure  => present,
+    content => template('amavis/51-puppet'),
+    notify  => Service['amavis'],
+  }
+  include amavis
   file { '/etc/amavis/conf.d/15-content_filter_mode':
     ensure  => present,
     content => template('amavis/15-content_filter_mode'),
