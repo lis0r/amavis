@@ -9,9 +9,9 @@ class amavis::config(
   file { [ '/etc/', '/etc/amavis/', '/etc/amavis/conf.d/' ]:
     ensure  => directory,
   }
-  file { '/etc/amavis/conf.d/51-puppet':
+  file { '/etc/amavis/conf.d/49-puppet':
     ensure  => present,
-    content => template('amavis/51-puppet'),
+    content => template('amavis/49-puppet'),
     notify  => Service['amavis'],
   }
   include amavis
