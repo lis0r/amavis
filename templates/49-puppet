@@ -12,6 +12,7 @@ $sa_spam_subject_tag = undef;
 $allowed_added_header_fields{lc('X-Spam-Report')} = 1;
 $spam_quarantine_to  = undef;
 $sa_tag_level_deflt  = -100;
+@local_domains_acl = ( "." );
 
 <% if @final_virus_destiny %>
 $final_virus_destiny=<%= @final_virus_destiny %>
